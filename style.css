@@ -108,7 +108,11 @@ footer{
     background: #44ff00e7;
     color: #fff;
 }
-
+#transaction{
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
 #data-table{
     width: 100%;
     border-spacing: 0 0.5rem;
@@ -154,6 +158,33 @@ table tbody td{
     color: var(--green-income);
 }
 
+.modal-overlay{    /*mascara de modal para diminuir dar visibilidae ao form*/
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal{
+    background: #f0f2f5;
+    padding: 2.4rem;
+    position: relative;
+}
+
+.modal-content{
+
+}
 footer{
     text-align: center;
     padding: 4rem 0 2rem;
@@ -161,3 +192,15 @@ footer{
     opacity: 0.6;
 }
 /*responsive*/
+
+@media (min-width: 800px){
+    html{
+        font-size: 87.5%;
+    }
+
+    #balance{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
