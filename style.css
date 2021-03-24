@@ -140,7 +140,7 @@ footer{
 
 .card.total{
     background: var(--green);
-    color: #white;
+    color: white;
 }
 #transaction{
     display: block;
