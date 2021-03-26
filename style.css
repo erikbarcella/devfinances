@@ -34,6 +34,7 @@ body{
     clip: rect(0,0,0);
     white-space: nowrap;
     border-width: 0;
+    opacity: 0;
 }
 .container{
     width: min(90vw, 800px);
