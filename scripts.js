@@ -13,7 +13,8 @@ const Modal ={
     } //togle alternativa
 }
 
-    const transactions =[{
+    const transactions =[
+    {
         id: 1,
         description: 'Luz',
         amount: -50000,
@@ -24,36 +25,50 @@ const Modal ={
         description: 'Acessoria',
         amount: 2000000,
         date: '05/03/2021'
-    }
+    }, 
     {
         id: 3,
         description: 'Internet',
         amount: -20000,
         date: '15/03/2021'
-    }]
+    }
+]
 
 const Transaction = {
     incomes (){
         //somar as entradas
-    }
+    },
     expenses() {
         //somar as saidas
-    }
+    },
     total(){
         //entradas-saidas
     }
 }
 
 const DOM = {
+    addTransaction(transaction, index){
+        console.log(transaction)
+        const tr = document.createElement('tr')
+        tr.innerHTML = DOM.innerHTMLTransaction()
+        
+    },
     innerHTMLTransaction(){
         const html= `
-    <tr>
-        <td class="description">Luz</td>
-        <td class="expense">-R$ 500,00</td>
-        <td class="date">02/03/2021</td>
+    
+        <td class="description"></td>
+        <td class="expense"></td>
+        <td class="date"></td>
         <td>
             <img src="./assets/minus.svg" alt="remover transação">
         </td>
-    </tr>`
+   
+    `
+
+    return html
     }
 }
+
+
+DOM.addTransaction(transactions[0])
+
