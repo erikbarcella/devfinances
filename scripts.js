@@ -46,6 +46,12 @@ const Transaction = {
     }
 }
 
+const Utils = {
+    formatCurrency(value){
+        console.log(value)
+    }
+}
+
 const DOM = {
     transactionsContainer: document.querySelector('#data-table tbody'),
 
@@ -58,10 +64,15 @@ const DOM = {
         
     },
     innerHTMLTransaction(transaction){
+        const CSSclass = transaction.amount > 0 ? 'income' : 'expense'
+
+        const amount = Utils.formatCurrency(transaction.amount)
+
+
         const html= `
     
         <td class="description">${transaction.description}</td>
-        <td class="expense">${transaction.amount}</td>
+        <td class='${CSSclass}'>${transaction.amount}</td>
         <td class="date">${transaction.date}</td>
         <td>
             <img src="./assets/minus.svg" alt="remover transação">
