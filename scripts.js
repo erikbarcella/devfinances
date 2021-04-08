@@ -47,21 +47,17 @@ const Transaction = {
 }
 
 const DOM = {
+    transactionsContainer: document.querySelector('#data-table tbody'),
+
     addTransaction(transaction, index){
         
         const tr = document.createElement('tr')
         tr.innerHTML = DOM.innerHTMLTransaction(transaction)
-        console.log(tr.innerHTML)
+
+        DOM.transactionsContainer.appendChild(tr)
         
     },
     innerHTMLTransaction(transaction){
-
-
-
-
-
-
-
         const html= `
     
         <td class="description">${transaction.description}</td>
@@ -78,5 +74,7 @@ const DOM = {
 }
 
 
-DOM.addTransaction(transactions[0])
+transactions.forEach(function(transaction){
+    DOM.addTransaction(transaction)
+})
 
