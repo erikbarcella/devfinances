@@ -13,7 +13,7 @@ const Modal ={
     } //togle alternativa
 }
 
-    const transactions =[
+    const transactions =[   //agrupamento das movimentações de saida e entrada
     {
         id: 1,
         description: 'Luz',
@@ -34,15 +34,29 @@ const Modal ={
     }
 ]
 
-const Transaction = {
+const Transaction = {        //soma e retorno de entrada, saida e total
     incomes (){
-        //somar as entradas
+        let income =0;
+        transactions.forEach(transaction => {
+            if(transaction.amount>0){
+                income+= transaction.amount;
+            }
+        })
+
+
+        return income;
     },
     expenses() {
-        //somar as saidas
+        let expense=0;
+        transactions.forEach(transaction => {
+            if(transaction.amount<0) {
+                expense+=transaction.amount
+            }
+        })
+        return expense
     },
     total(){
-        //entradas-saidas
+        return Transaction.incomes()+ Transaction.expenses();
     }
 }
 
@@ -78,10 +92,20 @@ const DOM = {
     return html
     },
 
-    //parei aqui , irei atualizar os valores de entrada , saida e total 
+   updateBlance() { //atualizando o balanço 
+       document
+            .getElementById('incomeDisplay')
+            .innerHTML=Utils.formatCurrency(Transaction.incomes())
+       document
+            .getElementById('expenseDisplay')
+            .innerHTML=Utils.formatCurrency(Transaction.expenses())
+       document
+            .getElementById('totalDisplay')
+            .innerHTML=Utils.formatCurrency(Transaction.total())
+   }
 }
 
-const Utils = {
+const Utils = {   //responsavel por fazer a devida formatação na moeda corrente
     formatCurrency(value){
         const signal = Number(value) < 0 ? "-" : ""
 
@@ -101,6 +125,8 @@ const Utils = {
 transactions.forEach(function(transaction){
     DOM.addTransaction(transaction)
 })
+
+DOM.updateBlance() 
 
 
 
