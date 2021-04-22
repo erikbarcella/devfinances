@@ -35,9 +35,11 @@ const Modal ={
 ]
 
 const Transaction = {        //soma e retorno de entrada, saida e total
+    all: transactions, 
+    
     incomes (){
         let income =0;
-        transactions.forEach(transaction => {
+        Transaction.all.forEach(transaction => {
             if(transaction.amount>0){
                 income+= transaction.amount;
             }
@@ -48,7 +50,7 @@ const Transaction = {        //soma e retorno de entrada, saida e total
     },
     expenses() {
         let expense=0;
-        transactions.forEach(transaction => {
+        Transaction.all.forEach(transaction => {
             if(transaction.amount<0) {
                 expense+=transaction.amount
             }
