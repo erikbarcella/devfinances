@@ -36,7 +36,12 @@ const Modal ={
 
 const Transaction = {        //soma e retorno de entrada, saida e total
     all: transactions, 
-    
+
+    add(transaction){
+        Transaction.all.push(transaction) // add a todas as transações
+        console.log(Transaction.all)
+    },
+
     incomes (){
         let income =0;
         Transaction.all.forEach(transaction => {
@@ -44,10 +49,9 @@ const Transaction = {        //soma e retorno de entrada, saida e total
                 income+= transaction.amount;
             }
         })
-
-
         return income;
     },
+
     expenses() {
         let expense=0;
         Transaction.all.forEach(transaction => {
@@ -57,9 +61,10 @@ const Transaction = {        //soma e retorno de entrada, saida e total
         })
         return expense
     },
+
     total(){
         return Transaction.incomes()+ Transaction.expenses();
-    }
+    },
 }
 
 
@@ -124,11 +129,22 @@ const Utils = {   //responsavel por fazer a devida formatação na moeda corrent
     }
 }
 
+const App ={
+    init () {
+
+    },
+    reload() {},
+}
+
+App.init
+
 transactions.forEach(function(transaction){
     DOM.addTransaction(transaction)
 })
 
 DOM.updateBlance() 
+
+
 
 
 
