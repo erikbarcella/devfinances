@@ -109,6 +109,10 @@ const DOM = {
        document
             .getElementById('totalDisplay')
             .innerHTML=Utils.formatCurrency(Transaction.total())
+   },
+
+   clearTransactions () {
+       DOM.transactionsContainer.innerHTML= ""
    }
 }
 
@@ -132,7 +136,6 @@ const Utils = {   //responsavel por fazer a devida formatação na moeda corrent
 const App ={
     init () {
         
-        
         Transaction.all.forEach(transaction =>{
             DOM.addTransaction(transaction)
         })
@@ -142,6 +145,7 @@ const App ={
         
     },
     reload() {
+        DOM.clearTransactions()
         App.init()
     },
 }
