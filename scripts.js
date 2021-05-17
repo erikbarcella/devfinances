@@ -137,6 +137,21 @@ const Utils = {   //responsavel por fazer a devida formatação na moeda corrent
     }
 }
 
+const Form = {
+    submit(event) {
+        event.preventDefault ()
+
+        //verificar todas as informações foram preenchidas
+        Form.validateFields()
+        //formatar os dados para salvar
+        Form.formatDate()
+        // salvar
+        // limpar o formulario 
+        //modal feche 
+        //atualizar a aplicação 
+    }
+}
+
 const App ={
     init () {
         
