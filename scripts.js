@@ -39,7 +39,7 @@ const Transaction = {        //soma e retorno de entrada, saida e total
 
     add(transaction){
         Transaction.all.push(transaction) // add a todas as transações
-        console.log(Transaction.all)
+        App.reload()
     },
 
     incomes (){
@@ -131,18 +131,30 @@ const Utils = {   //responsavel por fazer a devida formatação na moeda corrent
 
 const App ={
     init () {
+        
+        
+        Transaction.all.forEach(transaction =>{
+            DOM.addTransaction(transaction)
+        })
+        
+        DOM.updateBlance() 
 
+        
     },
-    reload() {},
+    reload() {
+        App.init()
+    },
 }
 
-App.init
+App.init ()
 
-transactions.forEach(function(transaction){
-    DOM.addTransaction(transaction)
+Transaction.add({
+    id: 39,
+    description: 'alo',
+    amount: 2000,
+    date: '23/01/2021'
 })
 
-DOM.updateBlance() 
 
 
 
