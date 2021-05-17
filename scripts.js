@@ -13,32 +13,36 @@ const Modal ={
     } //togle alternativa
 }
 
-    const transactions =[   //agrupamento das movimentações de saida e entrada
-    {
-        id: 1,
-        description: 'Luz',
-        amount: -50000,
-        date: '02/03/2021'
-    },
-    {
-        id: 2,
-        description: 'Acessoria',
-        amount: 2000000,
-        date: '05/03/2021'
-    }, 
-    {
-        id: 3,
-        description: 'Internet',
-        amount: -20000,
-        date: '15/03/2021'
-    }
-]
-
 const Transaction = {        //soma e retorno de entrada, saida e total
-    all: transactions, 
+    all:[   //agrupamento das movimentações de saida e entrada
+        {
+          
+            description: 'Luz',
+            amount: -50000,
+            date: '02/03/2021'
+        },
+        {
+         
+            description: 'Acessoria',
+            amount: 2000000,
+            date: '05/03/2021'
+        }, 
+        {
+         
+            description: 'Internet',
+            amount: -20000,
+            date: '15/03/2021'
+        }
+    ], 
 
     add(transaction){
         Transaction.all.push(transaction) // add a todas as transações
+        App.reload()
+    },
+
+    remove(index) {
+        Transaction.all.splice(index, 1)
+
         App.reload()
     },
 
@@ -151,16 +155,5 @@ const App ={
 }
 
 App.init ()
-
-Transaction.add({
-    id: 39,
-    description: 'alo',
-    amount: 2000,
-    date: '23/01/2021'
-})
-
-
-
-
 
 
