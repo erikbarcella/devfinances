@@ -138,6 +138,16 @@ const Utils = {   //responsavel por fazer a devida formatação na moeda corrent
 }
 
 const Form = {
+    desciption: document.querySelector('input:#description'),
+    desciption: document.querySelector('input:#amount'),
+    desciption: document.querySelector('input:#date'),
+
+    fomartDate() {
+        console.log("formatar os dados")
+    },
+    validateFields() {
+        console.log("validar os campos")
+    },
     submit(event) {
         event.preventDefault ()
 
@@ -149,7 +159,7 @@ const Form = {
         // limpar o formulario 
         //modal feche 
         //atualizar a aplicação 
-    }
+    },
 }
 
 const App ={
