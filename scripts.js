@@ -163,7 +163,20 @@ const Form = {
     submit(event) {
         event.preventDefault()
 
-        Form.validateFields
+
+        try {
+            Form.validateFields
+            //formatar os dados para salvar
+            //salvar
+            //limpar os campos do form
+            //fechar modal
+            //atualizar toda a aplicação
+            
+        } catch (error) {
+            
+        }
+
+       
     },
 
 
