@@ -136,30 +136,38 @@ const Utils = {   //responsavel por fazer a devida formatação na moeda corrent
         return signal+value
     }
 }
-
 const Form = {
-    desciption: document.querySelector('input:#description'),
-    desciption: document.querySelector('input:#amount'),
-    desciption: document.querySelector('input:#date'),
+    description: document.querySelector("input#description"),
+    amount: document.querySelector("input#amount"),
+    date: document.querySelector("input#date"),
 
-    fomartDate() {
-        console.log("formatar os dados")
+    getValues() {
+        return {
+            description: Form.description.value,
+            amount: Form.amount.value,
+            date: Form.date.value
+        }
     },
+
     validateFields() {
-        console.log("validar os campos")
-    },
-    submit(event) {
-        event.preventDefault ()
+        const { description, amount, date} = Form.getValues()
 
-        //verificar todas as informações foram preenchidas
-        Form.validateFields()
-        //formatar os dados para salvar
-        Form.formatDate()
-        // salvar
-        // limpar o formulario 
-        //modal feche 
-        //atualizar a aplicação 
+        if( description.trim() === "" || 
+            amount.trim() ==="" || 
+            date.trim() ==="") {
+                throw new Error ("Por favor, preencha todos os campos")
+        }
+
     },
+
+    submit(event) {
+        event.preventDefault()
+
+        Form.validateFields
+    },
+
+
+
 }
 
 const App ={
