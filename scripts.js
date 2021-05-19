@@ -152,18 +152,30 @@ const Form = {
 
     validateFields() {
         const { description, amount, date} = Form.getValues () 
-        console.log(description)
+        
+        if(description.trim() === "" || 
+           amount.trim() === "" || 
+           date.trim() === "") {
+            throw new error ("Por favor, preencha todos os campos")
+        }
     },
 
     submit(event) {
         event.preventDefault()
-        Form.validateFields()
-        //verificar se foi tudo preenchido
-        // formatar os dados
-        //salvar os dados
-        //limpar o form
-        //fechar modal
-        //atualizar app
+
+        try{ 
+            Form.validateFields()
+            //verificar se foi tudo preenchido
+            // formatar os dados
+            //salvar os dados
+            //limpar o form
+            //fechar modal
+            //atualizar app
+
+        } catch (error) {
+            alert("Por favor, preencha todos os campos")
+        }
+
     }
 }
 
