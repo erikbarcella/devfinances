@@ -183,18 +183,26 @@ const Form = {
         }
     },
 
+    saveTransaction(transaction) {
+        Transaction.add(transaction)
+    },
+
+    clearFields() {
+        Form.description.value=""
+        Form.amount.value=""
+        Form.date.value=""
+    },
+
     submit(event) {
         event.preventDefault()
 
         try{ 
-            /* Form.validateFields() */
-            //verificar se foi tudo preenchido
-            // formatar os dados
+            Form.validateFields()
             const trasaction = Form.formatValues()
-            //salvar os dados
-            //limpar o form
-            //fechar modal
-            //atualizar app
+            Form.saveTransaction(transaction)
+            Form.clearFields()
+            Modal.close()
+            
 
         } catch (error) {
             alert("Por favor, preencha todos os campos")
