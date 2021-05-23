@@ -122,7 +122,13 @@ const DOM = {
 
 const Utils = {   //responsavel por fazer a devida formatação na moeda corrente
     formatAmount(value){
-        console.log(value)
+        value=Number(value) * 100
+        return value
+    },
+
+    formatDate(date){
+        const splittedDate = date.split("-")
+        return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
     },
    
     formatCurrency(value){
@@ -168,16 +174,23 @@ const Form = {
         let { description, amount, date} =Form.getValues()
 
         amount = Utils.formatAmount(amount)
-    }
+        date= Utils.formatDate(date)
+
+        return{
+            description,
+            amount,
+            date
+        }
+    },
 
     submit(event) {
         event.preventDefault()
 
         try{ 
-            Form.validateFields()
+            /* Form.validateFields() */
             //verificar se foi tudo preenchido
             // formatar os dados
-            Form.formatValues()
+            const trasaction = Form.formatValues()
             //salvar os dados
             //limpar o form
             //fechar modal
